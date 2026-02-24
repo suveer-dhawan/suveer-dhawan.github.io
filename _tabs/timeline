@@ -1,0 +1,84 @@
+---
+layout: page
+icon: fas fa-stream
+order: 2
+title: Portfolio Timeline
+---
+
+<style>
+.portfolio-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.portfolio-timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--link-color);
+  top: 0;
+  bottom: 0;
+  left: 20px;
+}
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 100%;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 14px;
+  background-color: var(--body-bg);
+  border: 2px solid var(--link-color);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline-content {
+  padding: 15px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+.timeline-date {
+  font-weight: bold;
+  color: var(--theme-color);
+  margin-bottom: 5px;
+}
+</style>
+
+<div class="portfolio-timeline">
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">Nov 2025 – Feb 2026</div>
+      <h3>Woodside Energy | Data & AI Intern</h3>
+      <p>Architected 5 production-ready RAG AI workflows across Strategy and Engineering teams.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">Jun 2025 – Jul 2025</div>
+      <h3>Hidden Gems Talent | AI Team Lead</h3>
+      <p>Led a cross-functional team to build an automated recruitment pipeline, reducing manual screening by 95%.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">Oct 2023 – Jan 2025</div>
+      <h3>AlphaSights | Project Lead</h3>
+      <p>Managed 70+ high-stakes research projects for tier-1 consultants (Bain, BCG, McKinsey) in Dubai.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">2019 – 2023</div>
+      <h3>NYU Abu Dhabi | B.A. Economics (Honours)</h3>
+      <p>Focused on Game Theory and Applied Econometrics. Full merit scholarship (3% acceptance rate).</p>
+    </div>
+  </div>
+</div>

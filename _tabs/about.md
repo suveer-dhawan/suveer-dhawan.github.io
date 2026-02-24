@@ -2,6 +2,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 1
+title: About Me
 ---
 
 I am a Data Scientist and AI Engineer bridging the gap between quantitative economics and scalable machine learning. Growing up surrounded by a family home library of nearly 10,000 books instilled a deep appreciation for rigorous research, diverse narratives, and finding the underlying patterns in complex information. 
@@ -9,29 +10,39 @@ I am a Data Scientist and AI Engineer bridging the gap between quantitative econ
 Today, I focus on architecting production-ready AI microservices, leveraging my foundation in game theory and econometrics to solve structural organizational bottlenecks.
 
 ---
+
 <style>
 .cv-button {
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
-  background-color: var(--theme-color);
-  color: #fff !important;
-  border-radius: 6px;
+  padding: 12px 24px;
+  background-color: #57068c !important; /* Solid NYU Violet for visibility */
+  color: #ffffff !important;
+  border-radius: 8px;
   text-decoration: none !important;
   font-weight: bold;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: none;
-  margin: 15px 0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #57068c;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .cv-button:hover {
+  background-color: #7b43a1 !important; /* Slightly lighter purple on hover */
+  border-color: #7b43a1;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px var(--theme-color);
-  opacity: 0.9;
+  box-shadow: 0 6px 15px rgba(87, 6, 140, 0.3);
+  color: #ffffff !important;
 }
-.cv-icon { margin-right: 8px; }
+
+.cv-icon { 
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
 </style>
 
-<a href="/assets/Suveer_Resume.pdf" target="_blank" class="cv-button">
+<a href="/assets/Suveer_Dhawan_CV.pdf" target="_blank" class="cv-button">
   <i class="fas fa-file-pdf cv-icon"></i> Download CV
 </a>
 
@@ -124,7 +135,7 @@ journeyPoints.forEach(function(point) {
 ## Beyond the Code
 I take a highly structured approach to life outside of work. Physical fitness is a core pillar; I treat the gym with the same focus as a deployment pipeline, consistently chasing progressive overload. My mornings invariably start by hunting down the perfect iced long black or cold brew, and I actively track global markets and ETF compositions (like VGS and VDHG) to optimize personal finance strategies. 
 
-When I am not fine-tuning models, you will likely find me agonizing over Tottenham Hotspur—a passion I have carried since 2009—or following Luka Dončić's magic across the Mavericks and the Lakers. My weekly routine is soundtracked by a specific rotation of podcasts: staying sharp on the shifting AI landscape with *Hard Fork* and keeping up with the NBA via the *Hoop Collective*.
+When I am not fine-tuning models, you will likely find me agonizing over Tottenham Hotspur, or following Luka Dončić's magic across the Mavericks and now the Lakers. My weekly routine is soundtracked by a specific rotation of podcasts: staying sharp on the shifting AI landscape with *Hard Fork* and keeping up with the NBA via the *Hoop Collective*.
 
 I also enjoy exploring the creative intersections of technology, which recently meant building a custom interactive "choose your own adventure" website for a Valentine's project. Finally, music is my constant runtime environment. My Spotify algorithm is a chaotic but perfect split between an absolute obsession with Lin-Manuel Miranda's *Hamilton* and the songwriting of Taylor Swift and Gracie Abrams. Ultimately, whether I am deploying local vector databases, managing index funds, or writing code, my drive remains the same: building systems that are functional, scalable, and structurally elegant.
 
