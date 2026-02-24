@@ -1,6 +1,6 @@
 ---
 title: "AI Sales Assistant: 3-Day Hackathon Prototype"
-date: 2026-02-24 21:27:00 +0530
+date: 2025-08-15 21:27:00 +0530
 categories: [Projects, SaaS & Product]
 tags: [python, streamlit, firebase, oauth2, gemini, hackathon]
 ---

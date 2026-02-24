@@ -1,6 +1,6 @@
 ---
 title: "Netflix Content Assistant: Architecting Local RAG Infrastructure"
-date: 2026-02-24 21:40:00 +0530
+date: 2025-09-15 21:40:00 +0530
 categories: [Projects, Modern AI Infra]
 tags: [rag, python, langchain, ollama, chromadb, semantic-search]
 pin: true
@@ -8,7 +8,7 @@ pin: true
 
 **Role:** Personal AI Research Project  
 **Location:** Melbourne, Australia  
-**Timeline:** Sep 2025 – Present  
+**Timeline:** Sep 2025   
 
 While many AI applications rely exclusively on paid cloud APIs, I wanted to architect and deploy modern AI infrastructure entirely locally. I built an intelligent movie recommendation system using a Retrieval-Augmented Generation (RAG) architecture to process and semantically search a comprehensive dataset of over 6,000 Netflix titles.
 
