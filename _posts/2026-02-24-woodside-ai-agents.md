@@ -1,5 +1,5 @@
 ---
-title: "Industrial AI at Woodside Energy: Architecting 5 Production-Ready AI Workflows"
+title: "Woodside Energy: Architecting 5 Production-Ready AI Workflows"
 date: 2026-02-24 20:00:00 +0530
 categories: [Experience, Industrial AI]
 tags: [rag, copilot-studio, power-automate, llm-evaluation, data-engineering]

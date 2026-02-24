@@ -2,83 +2,88 @@
 layout: page
 icon: fas fa-stream
 order: 2
-title: Portfolio Timeline
+title: Experience
 ---
 
 <style>
-.portfolio-timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-.portfolio-timeline::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  background-color: var(--link-color);
-  top: 0;
-  bottom: 0;
-  left: 20px;
-}
-.timeline-item {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 100%;
-}
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  left: 14px;
-  background-color: var(--body-bg);
-  border: 2px solid var(--link-color);
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-.timeline-content {
-  padding: 15px;
-  background-color: var(--card-bg);
-  border-radius: 8px;
+.exp-card {
   border: 1px solid #333;
+  border-left: 4px solid var(--theme-color);
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
 }
-.timeline-date {
+.exp-card:hover {
+  transform: translateX(10px);
+  background: rgba(87, 6, 140, 0.05);
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.exp-title {
+  font-size: 1.25rem;
   font-weight: bold;
+  color: var(--text-color);
+}
+.exp-date {
+  font-size: 0.9rem;
   color: var(--theme-color);
-  margin-bottom: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.exp-company {
+  font-weight: 500;
+  color: #a392b3;
+  margin-bottom: 15px;
+}
+.exp-bullet {
+  list-style-type: none;
+  padding-left: 0;
+}
+.exp-bullet li::before {
+  content: "▹";
+  color: var(--theme-color);
+  margin-right: 10px;
 }
 </style>
 
-<div class="portfolio-timeline">
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">Nov 2025 – Feb 2026</div>
-      <h3>Woodside Energy | Data & AI Intern</h3>
-      <p>Architected 5 production-ready RAG AI workflows across Strategy and Engineering teams.</p>
-    </div>
+<div class="exp-card">
+  <div class="exp-header">
+    <div class="exp-title">Data & AI Intern</div>
+    <div class="exp-date">Nov 2025 – Feb 2026</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">Jun 2025 – Jul 2025</div>
-      <h3>Hidden Gems Talent | AI Team Lead</h3>
-      <p>Led a cross-functional team to build an automated recruitment pipeline, reducing manual screening by 95%.</p>
-    </div>
+  <div class="exp-company">Woodside Energy | Perth, Australia</div>
+  <ul class="exp-bullet">
+    <li>Architected 5 production-ready RAG AI workflows for Strategy and Engineering.</li>
+    <li>Automated high-frequency industrial documentation analysis using LLMs.</li>
+  </ul>
+</div>
+
+<div class="exp-card">
+  <div class="exp-header">
+    <div class="exp-title">AI Team Lead</div>
+    <div class="exp-date">Jun 2025 – Jul 2025</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">Oct 2023 – Jan 2025</div>
-      <h3>AlphaSights | Project Lead</h3>
-      <p>Managed 70+ high-stakes research projects for tier-1 consultants (Bain, BCG, McKinsey) in Dubai.</p>
-    </div>
+  <div class="exp-company">Hidden Gems Talent | Melbourne, Australia</div>
+  <ul class="exp-bullet">
+    <li>Engineered an automated recruitment pipeline using n8n and OpenAI.</li>
+    <li>Reduced manual CV screening time by 95% through semantic scoring.</li>
+  </ul>
+</div>
+
+<div class="exp-card">
+  <div class="exp-header">
+    <div class="exp-title">Project Lead</div>
+    <div class="exp-date">Oct 2023 – Jan 2025</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">2019 – 2023</div>
-      <h3>NYU Abu Dhabi | B.A. Economics (Honours)</h3>
-      <p>Focused on Game Theory and Applied Econometrics. Full merit scholarship (3% acceptance rate).</p>
-    </div>
-  </div>
+  <div class="exp-company">AlphaSights | Dubai, UAE</div>
+  <ul class="exp-bullet">
+    <li>Led 70+ research projects for tier-1 management consultants.</li>
+    <li>Optimized knowledge search workflows for Bain and BCG clients.</li>
+  </ul>
 </div>
