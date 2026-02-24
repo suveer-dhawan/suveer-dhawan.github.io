@@ -1,3 +1,15 @@
+---
+# the default layout is 'page'
+icon: fas fa-info-circle
+order: 4
+---
+
+I am a Data Scientist and AI Engineer bridging the gap between quantitative economics and scalable machine learning. Growing up surrounded by a family home library of nearly 10,000 books instilled a deep appreciation for rigorous research, diverse narratives, and finding the underlying patterns in complex information. 
+
+Today, I focus on architecting production-ready AI microservices, leveraging my foundation in game theory and econometrics to solve structural organizational bottlenecks.
+
+---
+
 ## 🗺️ The Global Journey
 My academic and professional career has been defined by international mobility, adapting to new markets, and learning across distinct cultures. Hover over the markers below to explore the timeline.
 
