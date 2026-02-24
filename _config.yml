@@ -9,7 +9,7 @@ theme: jekyll-theme-chirpy
 lang: en
 
 # Change to your timezone › https://zones.arilyn.cc
-timezone:
+timezone: Australia/Melbourne
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
@@ -38,11 +38,11 @@ social:
   email: suveer.dhawan@nyu.edu # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://www.linkedin.com/in/suveer-dhawan # change to your Twitter homepage
+    # change to your Twitter homepage
     - https://github.com/suveer-dhawan  # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/suveer-dhawan 
 
 # Site Verification Settings
 webmaster_verifications:
