@@ -42,7 +42,7 @@ Today, I focus on architecting production-ready AI microservices, leveraging my 
 }
 </style>
 
-<a href="/assets/Suveer_Dhawan_CV.pdf" target="_blank" class="cv-button">
+<a href="/assets/Suveer_Resume.pdf" target="_blank" class="cv-button">
   <i class="fas fa-file-pdf cv-icon"></i> Download CV
 </a>
 
