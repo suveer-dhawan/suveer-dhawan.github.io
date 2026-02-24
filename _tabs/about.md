@@ -11,75 +11,62 @@ Today, I focus on architecting production-ready AI microservices, leveraging my 
 ---
 
 ## 🗺️ The Global Journey
-My academic and professional career has been defined by international mobility, adapting to new markets, and learning across distinct cultures.
+My academic and professional career has been defined by international mobility, adapting to new markets, and learning across distinct cultures. Hover over the markers below to explore the timeline.
 
-<style>
-.timeline {
-  border-left: 2px solid var(--link-color);
-  padding-left: 20px;
-  margin-left: 10px;
-  list-style-type: none;
-}
-.timeline li {
-  margin-bottom: 25px;
-  position: relative;
-}
-.timeline li::before {
-  content: '';
-  position: absolute;
-  left: -27px;
-  top: 5px;
-  width: 12px;
-  height: 12px;
-  background-color: var(--body-bg);
-  border: 2px solid var(--link-color);
-  border-radius: 50%;
-}
-.time-loc {
-  font-weight: bold;
-  color: var(--link-color);
-  font-size: 1.1rem;
-}
-.time-desc {
-  margin-top: 5px;
-  color: var(--text-color);
-}
-</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<ul class="timeline">
-  <li>
-    <div class="time-loc">📍 Abu Dhabi, UAE</div>
-    <div class="time-desc"><strong>NYU Abu Dhabi.</strong> Earned a B.A. in Economics (Honours) on a full scholarship (3% acceptance rate) and was awarded the UAE Golden Visa for exceptional talent.</div>
-  </li>
-  <li>
-    <div class="time-loc">📍 New York City, USA</div>
-    <div class="time-desc"><strong>NYU Study Away.</strong> Deepened my quantitative foundation in Applied Econometrics while catching Nets games at Barclays.</div>
-  </li>
-  <li>
-    <div class="time-loc">📍 Florence, Italy</div>
-    <div class="time-desc"><strong>NYU J-Term.</strong> Explored the intersection of history and culture by studying Mediterranean Foodways across Italy.</div>
-  </li>
-  <li>
-    <div class="time-loc">📍 Dubai, UAE</div>
-    <div class="time-desc"><strong>AlphaSights.</strong> Served as a Project Lead, managing 70+ projects for tier-1 consulting clients (Bain, BCG, McKinsey) and driving $800k in global revenue.</div>
-  </li>
-  <li>
-    <div class="time-loc">📍 Melbourne, Australia</div>
-    <div class="time-desc"><strong>Monash University.</strong> Currently pursuing a Master of Data Science, active in the Deep Neuron team and Google Developer Groups.</div>
-  </li>
-  <li>
-    <div class="time-loc">📍 Perth, Australia</div>
-    <div class="time-desc"><strong>Woodside Energy.</strong> Architected and deployed end-to-end RAG AI agents to automate industrial workflows across the enterprise.</div>
-  </li>
-  <li>
-    <div class="time-loc">📍 Sydney, Australia</div>
-    <div class="time-desc"><strong>Top 100 Future Leaders.</strong> Nationally recognized for leadership and technical potential in the Australian graduate market.</div>
-  </li>
-</ul>
+<div id="journey-map" style="height: 450px; border-radius: 12px; margin: 30px 0; border: 2px solid var(--link-color); z-index: 1;"></div>
+
+<script>
+  // 1. Initialize the map (Zoomed out to see the globe, centered near the Middle East/Asia)
+  var map = L.map('journey-map', {
+    scrollWheelZoom: false // Prevents the page from getting stuck when scrolling down
+  }).setView([25.0, 70.0], 2);
+
+  // 2. Add a sleek "Dark Matter" base map (No API key required)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+  }).addTo(map);
+
+  // 3. Define your journey data
+  var journeyPoints = [
+      { coords: [24.4539, 54.3773], title: "📍 Abu Dhabi, UAE", desc: "<b>NYU Abu Dhabi</b><br>B.A. Economics (Honours)<br>Full Scholarship (3% acceptance) & UAE Golden Visa." },
+      { coords: [40.7128, -74.0060], title: "📍 New York, USA", desc: "<b>NYU Study Away</b><br>Applied Econometrics<br>Catching Nets games at Barclays." },
+      { coords: [43.7696, 11.2558], title: "📍 Florence, Italy", desc: "<b>NYU J-Term</b><br>Mediterranean Foodways<br>Intersection of history, culture, and Italian cuisine." },
+      { coords: [25.2048, 55.2708], title: "📍 Dubai, UAE", desc: "<b>AlphaSights</b><br>Project Lead<br>Managed 70+ projects for tier-1 consultants (Bain, BCG)." },
+      { coords: [-37.8136, 144.9631], title: "📍 Melbourne, Australia", desc: "<b>Monash University</b><br>Master of Data Science<br>Deep Neuron & Graduate Research." },
+      { coords: [-31.9505, 115.8605], title: "📍 Perth, Australia", desc: "<b>Woodside Energy</b><br>Data & AI Intern<br>Architected 5 production-ready RAG AI workflows." },
+      { coords: [-33.8688, 151.2093], title: "📍 Sydney, Australia", desc: "<b>Top 100 Future Leaders</b><br>Nationally recognized for technical and leadership potential." }
+  ];
+
+  // 4. Add markers with custom hover popups
+  journeyPoints.forEach(function(point) {
+      var marker = L.marker(point.coords).addTo(map);
+      
+      // Bind a popup with some inline CSS for spacing
+      marker.bindPopup('<div style="font-family: inherit; text-align: center;"><span style="color: #7b43a1; font-weight: bold; font-size: 1.1em;">' + point.title + '</span><br><div style="margin-top: 5px;">' + point.desc + '</div></div>', {
+        closeButton: false,
+        offset: L.point(0, -20)
+      });
+
+      // Trigger popup on hover (mouseover)
+      marker.on('mouseover', function (e) {
+          this.openPopup();
+      });
+
+      // Close popup when mouse leaves (mouseout)
+      marker.on('mouseout', function (e) {
+          this.closePopup();
+      });
+  });
+</script>
 
 ---
 
 ## ☕ Beyond the Code
-I believe the best engineers are highly creative. When I am not fine-tuning models or hunting down the perfect iced long black, I enjoy exploring the creative intersections of technology. Recently, this meant building a custom "choose your own adventure" website featuring eerie moors, haunted mansions, and unreliable narrators as a highly personalized interactive experience. 
+I believe the best engineers are highly creative. When I am not fine-tuning models or hunting down the perfect iced cold brew, I enjoy exploring the creative intersections of technology. Recently, this meant building a custom "choose your own adventure" website featuring eerie moors, haunted mansions, and unreliable narrators as an interactive experience. 
 
 Whether it is deploying local vector databases or analyzing sports analytics, I am driven by the desire to build systems that are both highly functional and structurally elegant.
