@@ -1,6 +1,6 @@
 ---
 title: "Netflix Content Assistant: Architecting Local RAG Infrastructure"
-date: 2025-09-15 21:40:00 +0530
+date: 2025-10-04 21:40:00 +0530
 categories: [Projects, Modern AI Infra]
 tags: [rag, python, langchain, ollama, chromadb, semantic-search]
 pin: true

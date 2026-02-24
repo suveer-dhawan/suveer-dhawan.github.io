@@ -1,6 +1,6 @@
 ---
 title: "Hidden Gems Talent: Architecting an AI Recruitment Pipeline"
-date: 2025-07-15 21:50:00 +0530
+date: 2025-08-07 21:50:00 +0530
 categories: [Experience, Leadership & Automation]
 tags: [n8n, openai, workflow-automation, prompt-engineering, leadership]
 pin: true
@@ -8,7 +8,7 @@ pin: true
 
 **Role:** AI Team Lead (Intern)  
 **Location:** Singapore / Melbourne  
-**Timeline:** Jun 2025 – Jul 2025  
+**Timeline:** Jun 2025 – Aug 2025  
 
 During the Monash Teamwork Internship, I led a cross-functional team in collaboration with Hidden Gems Talent—a recruitment agency in Singapore/Malaysia—to solve a critical operational bottleneck: candidate screening fatigue. We architected a complete, end-to-end AI-powered evaluation workflow that fundamentally transformed their hiring pipeline.
 

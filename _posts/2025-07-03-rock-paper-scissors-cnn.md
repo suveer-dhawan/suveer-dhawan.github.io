@@ -1,6 +1,6 @@
 ---
 title: "Computer Vision: 99.7% Accuracy with Custom PyTorch CNNs"
-date: 2025-06-15 12:00:00 +0530
+date: 2025-07-03 12:00:00 +0530
 categories: [Projects, Deep Learning]
 tags: [pytorch, cnn, computer-vision, model-evaluation]
 pin: true
