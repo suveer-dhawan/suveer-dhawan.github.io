@@ -244,6 +244,15 @@ title: Experience
   }
 </style>
 
+<div class="page-intro" style="max-width: 800px; margin: 0 auto 3rem auto; text-align: center;">
+  <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.5rem;">
+    I'm a Data Scientist and AI Engineer with a foundation in Economics and project leadership. Having previously managed high-stakes research for tier-1 management consulting firms, I specialize in bridging the gap between complex business problems and technical execution. Today, my work focuses on architecting production-ready RAG workflows, building agentic AI pipelines, and evaluating LLMs to drive measurable operational efficiency. 
+  </p>
+  <p style="font-size: 1.1rem; color: var(--text-color);">
+    Here is a look at my professional and academic journey so far.
+  </p>
+</div>
+
 <div class="timeline-container">
 
   <div class="timeline-item right">
