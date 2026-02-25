@@ -16,6 +16,8 @@
   --btn-border-color: #57068c !important;
   --sidebar-active-color: #57068c !important;
   --toc-highlight: #57068c !important;
+  /* Blue glow for the purple light theme */
+  --glow-bg: rgba(66, 133, 244, 0.18) !important; 
 }
 
 @mixin dark-theme {
@@ -29,6 +31,8 @@
   --sidebar-bg: #141417 !important; 
   --main-bg: #1e1e22 !important;
   --card-bg: #252529 !important;
+  /* Bright purple glow for the blue dark theme */
+  --glow-bg: rgba(123, 67, 161, 0.18) !important; 
 }
 
 /* ------------- Apply Base Themes ------------- */
@@ -60,6 +64,23 @@ html[data-mode="dark"] {
 #post-list .card:hover .card-title {
   color: var(--theme-color) !important;
   transition: color 0.3s ease !important;
+}
+
+/* ------------- Global Cursor Glow ------------- */
+#cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: radial-gradient(
+    circle 400px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), 
+    var(--glow-bg), 
+    transparent 80%
+  );
+  transition: background 0.1s ease;
 }
 
 /* ------------- Light Mode Interactions ------------- */
@@ -99,4 +120,21 @@ html[data-mode="dark"] {
   html:not([data-mode]) {
     @include dark-interactions;
   }
+}
+
+/* ------------- Sidebar Avatar Effects ------------- */
+#sidebar .profile-wrapper img {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--glow-bg);
+  animation: breathingGlow 3s infinite alternate;
+}
+
+#sidebar .profile-wrapper img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--theme-color);
+}
+
+@keyframes breathingGlow {
+  0% { box-shadow: 0 0 10px var(--glow-bg); }
+  100% { box-shadow: 0 0 20px var(--theme-color); }
 }

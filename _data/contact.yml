@@ -8,3 +8,7 @@
 - type: email
   icon: "fas fa-envelope"
   noblank: true
+
+- type: spotify
+  icon: "fab fa-spotify"
+  url: "https://open.spotify.com/user/f2vrpupzwqbtoas6mhve1legi"
