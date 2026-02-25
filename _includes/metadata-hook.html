@@ -1,33 +1,26 @@
-<style>
-  #cursor-glow {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    /* Uses the theme variable, with a fallback just in case */
-    background: radial-gradient(
-      circle 400px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), 
-      var(--glow-bg, rgba(123, 67, 161, 0.18)), 
-      transparent 80%
-    );
-    transition: background 0.1s ease;
-  }
-</style>
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Create the glow div dynamically
+    // 1. Create the div
     const glow = document.createElement("div");
     glow.id = "cursor-glow";
+    
+    // 2. Apply all static styles directly via JS object
+    Object.assign(glow.style, {
+      pointerEvents: 'none',
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100vw',
+      height: '100vh',
+      zIndex: '9999',
+      transition: 'background 0.1s ease'
+    });
+    
     document.body.appendChild(glow);
 
-    // 2. Track mouse movements to update the CSS variables
+    // 3. Construct the gradient dynamically to protect the syntax
     document.addEventListener('mousemove', function(e) {
-      glow.style.setProperty('--mouse-x', e.clientX + 'px');
-      glow.style.setProperty('--mouse-y', e.clientY + 'px');
+      glow.style.background = `radial-gradient(circle 600px at ${e.clientX}px ${e.clientY}px, var(--glow-bg, rgba(123, 67, 161, 0.18)), transparent 80%)`;
     });
   });
 </script>
