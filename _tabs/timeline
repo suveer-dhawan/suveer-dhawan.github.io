@@ -13,146 +13,444 @@ title: Experience
 
   .timeline-container {
     position: relative;
-    max-width: 700px; /* Constrained to stay clear of the right sidebar */
+    max-width: 850px;
     margin: 2rem auto;
     padding: 2rem 0;
   }
 
-  /* 2. The Spine - Fixed centering */
+  /* 2. The Spine */
   .timeline-container::before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: 3px;
     background: var(--theme-color);
     left: 50%;
-    margin-left: -2px; /* Perfect center */
+    margin-left: -1.5px;
     z-index: 1;
-    box-shadow: 0 0 10px var(--theme-color);
+    opacity: 0.3;
   }
 
   /* 3. Alternating Item Logic */
   .timeline-item {
     position: relative;
-    width: 100%; /* Changed to 100% to control internal alignment */
-    margin-bottom: 3rem;
+    width: 100%;
+    margin-bottom: 3.5rem;
     display: flex;
-    justify-content: flex-start; /* Default to left */
+    justify-content: flex-start;
   }
 
   .timeline-item.right {
-    justify-content: flex-end; /* Push content to right */
+    justify-content: flex-end;
   }
 
-  /* 4. The Nodes (Dots) */
+  /* 4. The Nodes */
   .timeline-node {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--main-bg);
-    border: 4px solid var(--theme-color);
+    width: 16px;
+    height: 16px;
+    background: var(--theme-color);
+    border: 4px solid var(--main-bg);
     border-radius: 50%;
     left: 50%;
-    margin-left: -10px;
-    top: 20px;
+    margin-left: -8px;
+    top: 28px;
     z-index: 2;
-    box-shadow: 0 0 8px var(--theme-color);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-node {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.4);
   }
 
   /* 5. The Cards */
   .timeline-card {
-    width: 42%; /* Leave space for the spine and margin */
-    padding: 1.5rem;
+    width: 45%;
+    padding: 1.8rem;
     background: var(--card-bg);
     border-radius: 12px;
-    border: 1px solid rgba(128, 128, 128, 0.2);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
   }
 
   .timeline-card:hover {
     transform: translateY(-5px);
     border-color: var(--theme-color);
-    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.2);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.15);
   }
 
-  .exp-meta { font-size: 0.85rem; color: var(--theme-color); font-weight: bold; margin-bottom: 5px; }
-  .exp-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; }
-  .exp-text { font-size: 0.95rem; color: var(--text-muted-color); line-height: 1.4; }
+  /* 6. Header with Logo (Canva Inspired) */
+  .timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+  }
+
+  .company-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--main-bg);
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    padding: 2px;
+  }
+
+  .header-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .job-title-main {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+  }
+
+  .company-name-sub {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted-color);
+  }
+
+  /* Typography & Content */
+  .exp-meta { 
+    font-size: 0.85rem; 
+    color: var(--theme-color); 
+    font-weight: 700; 
+    letter-spacing: 0.5px;
+    margin-bottom: 12px; 
+    text-transform: uppercase;
+  }
+  
+  .exp-bullet {
+    margin-top: 15px; 
+    padding-left: 0; 
+    list-style-type: none; 
+    font-size: 0.95rem; 
+    color: var(--text-color);
+    line-height: 1.5;
+  }
+  
+  .exp-bullet li {
+    margin-bottom: 10px;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .exp-bullet li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--theme-color);
+    font-weight: bold;
+  }
+
+  .metric {
+    font-weight: 700;
+    color: var(--theme-color);
+  }
+
+  .highlight-bullet {
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  /* Sub-bullets for distinct highlighting */
+  .sub-bullet-list {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    padding-left: 1.5rem;
+    list-style-type: circle;
+    color: var(--text-muted-color);
+  }
+  
+  .sub-bullet-list li {
+    padding-left: 0;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+  }
+  .sub-bullet-list li::before {
+    content: none;
+  }
+
+  /* Badges */
+  .post-tags {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .badge {
+    background: rgba(66, 133, 244, 0.08);
+    color: var(--theme-color);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(66, 133, 244, 0.2);
+  }
+
+  /* Links */
+  .case-study-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--theme-color);
+    transition: all 0.2s;
+    background: rgba(66, 133, 244, 0.05);
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+  .case-study-link:hover {
+    text-decoration: none;
+    background: rgba(66, 133, 244, 0.15);
+  }
+
+  .project-links {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .project-links a {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .project-links a:hover {
+    color: var(--theme-color);
+    text-decoration: underline;
+  }
 
   /* Mobile Adjustments */
   @media (max-width: 992px) {
     .timeline-container { max-width: 100%; margin: 1rem; }
-    .timeline-container::before { left: 20px; }
-    .timeline-node { left: 20px; }
-    .timeline-item, .timeline-item.right { justify-content: flex-start; padding-left: 50px; }
+    .timeline-container::before { left: 30px; }
+    .timeline-node { left: 30px; margin-left: -8px; }
+    .timeline-item, .timeline-item.right { justify-content: flex-start; padding-left: 65px; margin-bottom: 2.5rem; }
     .timeline-card { width: 100%; }
   }
 </style>
 
 <div class="timeline-container">
 
-  <div class="timeline-item">
-    <div class="timeline-node"></div>
-    <div class="timeline-card">
-      <div class="exp-meta">2019 - 2023</div>
-      <div class="exp-title">B.A. Economics (Honours)</div>
-      <div class="exp-text">NYU Abu Dhabi • Full Scholarship & Golden Visa Recipient</div>
-    </div>
-  </div>
-
-<div class="timeline-item right">
-    <div class="timeline-node"></div>
-    <div class="timeline-card">
-      <div class="exp-meta">2022</div>
-      <div class="exp-title">NYU New York</div>
-      <div class="exp-text">Study Away: Focused on Creative Coding and Finance.</div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-node"></div>
-    <div class="timeline-card">
-      <div class="exp-meta">2023</div>
-      <div class="exp-title">Florence, Italy</div>
-      <div class="exp-text">NYU J-Term: Explored historical cultural intersections and Mediterranean foodways.</div>
-    </div>
-  </div>
-
   <div class="timeline-item right">
-    <div class="timeline-node"></div>
-    <div class="timeline-card">
-      <div class="exp-meta">2023 - 2025</div>
-      <div class="exp-title">Project Lead</div>
-      <div class="exp-text">AlphaSights (Dubai) • Led 70+ research projects for tier-1 management consultants.</div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-node"></div>
-    <div class="timeline-card">
-      <div class="exp-meta">2025 - PRESENT</div>
-      <div class="exp-title">Master of Data Science</div>
-      <div class="exp-text">Monash University • WAM: 88% | Deep Neuron AI Team.</div>
-    </div>
-  </div>
-
-  <div class="timeline-item right">
-    <div class="timeline-node"></div>
-    <div class="timeline-card">
-      <div class="exp-meta">JUN 2025 - JUL 2025</div>
-      <div class="exp-title">AI Team Lead (Intern)</div>
-      <div class="exp-text">Hidden Gems Talent • Architected automated AI recruitment pipelines.</div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
     <div class="timeline-node"></div>
     <div class="timeline-card">
       <div class="exp-meta">NOV 2025 - FEB 2026</div>
-      <div class="exp-title">Data & AI Intern</div>
-      <div class="exp-text">Woodside Energy • Deployed production-ready RAG workflows for Strategy & Engineering.</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/woodside.png" alt="Woodside Energy" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">AI Intern</h3>
+          <div class="company-name-sub">Woodside Energy • Perth, Australia</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li>Architected <span class="metric">5 production-ready RAG workflows</span> using Copilot Studio and Power Automate.</li>
+        <li>Eliminated a <span class="metric">15-person weekly manual triage meeting</span> by automating user feedback classification.</li>
+        <li>Evaluated LLMs (GPT-5.1, Claude 4.5) for unstructured data extraction, optimizing prompts to mitigate hallucinations.</li>
+      </ul>
+      <div class="post-tags">
+        <span class="badge">RAG</span>
+        <span class="badge">Azure OpenAI</span>
+        <span class="badge">Copilot Studio</span>
+        <span class="badge">LLM Evaluation</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">Power Automate</span>
+      </div>
+      <a href="https://suveer-dhawan.github.io/posts/woodside-ai-agents/" class="case-study-link">Read Case Study →</a>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">JUN 2025 - JUL 2025</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/hidden.png" alt="Hidden Gems Talent" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">AI Team Lead (Intern)</h3>
+          <div class="company-name-sub">Hidden Gems Talent • Singapore / Melbourne</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li>Led a 7-person team to architect an end-to-end AI recruitment pipeline.</li>
+        <li>Reduced manual CV screening time by <span class="metric">95%</span> using intelligent n8n workflow orchestration.</li>
+        <li>Built agentic pipelines to detect AI-generated content and generate personalized candidate feedback.</li>
+      </ul>
+      <div class="post-tags">
+        <span class="badge">n8n</span>
+        <span class="badge">OpenAI API</span>
+        <span class="badge">Agentic AI</span>
+        <span class="badge">Workflow Automation</span>
+      </div>
+      <a href="https://suveer-dhawan.github.io/posts/hidden-gems-talent/" class="case-study-link">Read Case Study →</a>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">FEB 2025 - PRESENT</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/monash.png" alt="Monash University" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">Master of Data Science</h3>
+          <div class="company-name-sub">Monash University • Melbourne, Australia</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li><span class="highlight-bullet">Academic Excellence:</span>
+          <ul class="sub-bullet-list">
+            <li><span class="metric">88% WAM</span> (3.9/4.0 GPA)</li>
+            <li><span class="metric">3.9/4.0 GPA</span></li>
+            <li><span class="metric">Seek Top 100 Future Leaders Finalist</span> (Quantium Data & AI Award)</li>
+          </ul>
+        </li>
+        <li><span class="highlight-bullet">Master's Thesis:</span> Researching and developing frameworks using LLMs to simulate and predict household energy consumption behaviors.</li>
+        <li><span class="highlight-bullet">Deep Neuron AI Team:</span> Active contributor to university AI initiatives and projects.</li>
+      </ul>
+      
+      <div style="margin-top: 15px; font-size: 0.9rem; font-weight: 700; color: var(--text-color);">Applied Projects:</div>
+      <div class="project-links">
+        <a href="https://suveer-dhawan.github.io/posts/netflix-content-assistant/">↳ Netflix Content Assistant</a>
+        <a href="https://suveer-dhawan.github.io/posts/ai-sales-assistant/">↳ AI Sales Assistant</a>
+        <a href="https://suveer-dhawan.github.io/posts/rock-paper-scissors-cnn/">↳ Rock-Paper-Scissors CNN</a>
+      </div>
+
+      <div class="post-tags">
+        <span class="badge">Python</span>
+        <span class="badge">SQL</span>
+        <span class="badge">R</span>
+        <span class="badge">PyTorch</span>
+        <span class="badge">LangChain</span>
+        <span class="badge">Pandas</span>
+        <span class="badge">NLP</span>
+        <span class="badge">CNN</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">MAY 2024 - JAN 2025</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/alphasights.jpg" alt="AlphaSights" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">Project Lead</h3>
+          <div class="company-name-sub">AlphaSights • Dubai, UAE</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li>Led a team of 3 across <span class="metric">70+ research projects</span> for tier-1 consulting clients including Bain, BCG, McKinsey, and PwC.</li>
+        <li>Developed bundled CV-products for RfPs, increasing per-project revenue by <span class="metric">8%</span>.</li>
+        <li>Generated <span class="metric">$3k average revenue</span> per project, outperforming internal benchmarks by 20%.</li>
+      </ul>
+      <div class="post-tags">
+        <span class="badge">Project Management</span>
+        <span class="badge">Data Parsing</span>
+        <span class="badge">Leadership</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">JUL 2023 - MAY 2024</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/alphasights.jpg" alt="AlphaSights" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">Client Service Associate</h3>
+          <div class="company-name-sub">AlphaSights • Dubai, UAE</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li>Managed global client relationships and recruited C-level experts for high-stakes management consulting engagements.</li>
+        <li>Rapidly promoted to Project Lead within 10 months based on consistent project delivery and revenue generation.</li>
+      </ul>
+      <div class="post-tags">
+        <span class="badge">Stakeholder Management</span>
+        <span class="badge">Client Relations</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">JAN 2023</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/nyu.png" alt="NYU" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">Global Study Away</h3>
+          <div class="company-name-sub">NYU Florence • Italy</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li>Explored historical cultural intersections, data analysis in historical contexts, and Mediterranean foodways.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">JAN 2022 - MAY 2022</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/nyu.png" alt="NYU" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">Global Study Away</h3>
+          <div class="company-name-sub">NYU New York • USA</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li>Focused coursework intersecting <span class="highlight-bullet">Finance, Contract Law, Creative Coding, and Sports Marketing</span>.</li>
+        <li>Immersed in NYC culture: sparked a Broadway obsession seeing Hamilton and caught weekly live NBA games.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-node"></div>
+    <div class="timeline-card">
+      <div class="exp-meta">AUG 2019 - MAY 2023</div>
+      <div class="timeline-header">
+        <img src="/assets/img/logos/nyu.png" alt="NYU Abu Dhabi" class="company-logo">
+        <div class="header-text">
+          <h3 class="job-title-main">B.A. Economics (Honours)</h3>
+          <div class="company-name-sub">NYU Abu Dhabi • UAE</div>
+        </div>
+      </div>
+      <ul class="exp-bullet">
+        <li><span class="highlight-bullet">Academic Excellence:</span> 
+          <ul class="sub-bullet-list">
+            <li><span class="metric">3.93/4.0 GPA</span> (Summa Cum Laude)</li>
+            <li><span class="metric">Full Scholarship</span> (Awarded to top 3% of global applicants)</li>
+            <li>Founder's Day Award Winner</li>
+          </ul>
+        </li>
+        <li><span class="highlight-bullet">UAE Golden Visa Recipient:</span> Awarded 10-year residency for exceptional academic talent.</li>
+      </ul>
+      <div class="post-tags">
+        <span class="badge">Econometrics</span>
+        <span class="badge">Data Analysis</span>
+        <span class="badge">Probability & Statistics</span>
+        <span class="badge">FinTech</span>
+      </div>
     </div>
   </div>
 
