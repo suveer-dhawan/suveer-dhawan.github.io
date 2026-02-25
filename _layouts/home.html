@@ -6,31 +6,86 @@ refactor: true
 {% include lang.html %}
 
 <style>
-
-  /* 2. Enhanced Intro Card */
-  .home-intro {
-    margin-bottom: 2.5rem; 
-    padding: 2rem; 
-    background: var(--card-bg); 
-    border-radius: 16px; 
-    border-left: 4px solid var(--theme-color); 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  /* --- 1. Premium Hero Section --- */
+  .premium-hero {
     position: relative;
-    z-index: 2; /* Keeps it above the glow if needed */
+    margin-bottom: 3.5rem;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, var(--card-bg) 0%, rgba(0,0,0,0.02) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    border-top: 4px solid var(--theme-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
   }
 
-  /* 3. Quick Action Buttons */
-  .intro-actions {
-    margin-top: 1.2rem;
+  /* Subtle background glow effect inside the hero */
+  .premium-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--theme-color) 0%, transparent 70%);
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted-color);
+  }
+
+  .focus-area {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    background: rgba(128, 128, 128, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    color: var(--text-muted-color);
+  }
+
+  .focus-label {
+    color: var(--theme-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+  }
+
+  /* --- 2. Action Buttons --- */
+  .hero-actions {
+    margin-top: 2rem;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
   }
 
-  .intro-btn {
+  .hero-btn {
     display: inline-flex;
     align-items: center;
-    padding: 8px 18px;
+    padding: 10px 20px;
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 600;
@@ -38,20 +93,18 @@ refactor: true
     transition: all 0.2s ease;
   }
 
-  .intro-btn i {
-    margin-right: 8px;
-    font-size: 1.1rem;
-  }
+  .hero-btn i { margin-right: 8px; font-size: 1.1rem; }
 
   .btn-primary {
     background-color: var(--theme-color);
     color: #ffffff !important;
     border: 2px solid var(--theme-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+    box-shadow: 0 6px 15px rgba(87, 6, 140, 0.3);
     color: #ffffff !important;
   }
 
@@ -66,30 +119,154 @@ refactor: true
     color: var(--theme-color) !important;
     transform: translateY(-2px);
   }
+
+  .btn-text {
+    color: var(--text-muted-color) !important;
+    border: 2px solid transparent;
+  }
+
+  .btn-text:hover {
+    color: var(--theme-color) !important;
+  }
+
+  /* --- 3. Featured Posts Grid --- */
+  .section-heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .feat-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+  }
+
+  .feat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--theme-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .feat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .feat-date {
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .feat-badge {
+    background: rgba(87, 6, 140, 0.1); /* Fallback for light theme */
+    color: var(--theme-color);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Target dark mode badge specifically to ensure readability */
+  html[data-mode="dark"] .feat-badge {
+    background: rgba(66, 133, 244, 0.15);
+  }
+
+  .feat-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+  }
+
+  .feat-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted-color);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .feat-card:hover .feat-title {
+    color: var(--theme-color);
+  }
 </style>
 
-<div class="home-intro">
-  <h2 style="margin-top: 0; color: var(--text-color);">Hi, I'm Suveer!</h2>
-  <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem; color: var(--text-muted-color);">
-    I am a Data Scientist and AI Engineer specializing in architecting production-ready agents and industrial machine learning workflows. With a foundation in <strong>Quantitative Economics from NYU Abu Dhabi</strong> and pursuing a <strong>Master’s in Data Science from Monash</strong>, I build systems that solve structural organizational bottlenecks through intelligent automation.
-  </p>
-  
-  <div style="font-size: 1.05rem; border-top: 1px solid rgba(128, 128, 128, 0.1); padding-top: 0.8rem; color: var(--text-muted-color);">
-    <span style="color: var(--theme-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.8rem; margin-right: 8px;">Currently focused on:</span>
-    <span style="display: inline-block; opacity: 0.9;">RAG Architectures</span> • 
-    <span style="display: inline-block; opacity: 0.9;">Industrial AI</span> • 
-    <span style="display: inline-block; opacity: 0.9;">Scalable Automation</span>
-  </div>
+<div class="premium-hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Hi, I'm Suveer.</h1>
+    <p class="hero-subtitle">
+      I am a Data Scientist and AI Engineer specializing in architecting production-ready agents and industrial machine learning workflows. With a foundation in <strong>Quantitative Economics</strong> and pursuing a <strong>Master’s in Data Science</strong>, I build systems that solve structural organizational bottlenecks through intelligent automation.
+    </p>
+    
+    <div class="focus-area">
+      <span class="focus-label">Currently focused on:</span>
+      <span style="font-weight: 600;">RAG Architectures</span> • 
+      <span style="font-weight: 600;">Industrial AI</span> • 
+      <span style="font-weight: 600;">Scalable Automation</span>
+    </div>
 
-  <div class="intro-actions">
-    <a href="/assets/Suveer_Resume.pdf" target="_blank" class="intro-btn btn-primary">
-      <i class="fas fa-file-pdf"></i> View Resume
-    </a>
-    <a href="https://github.com/suveer-dhawan" target="_blank" class="intro-btn btn-secondary">
-      <i class="fab fa-github"></i> GitHub
-    </a>
+    <div class="hero-actions">
+      <a href="/assets/Suveer_Resume.pdf" target="_blank" class="hero-btn btn-primary">
+        <i class="fas fa-file-pdf"></i> View Resume
+      </a>
+      <a href="/about/" class="hero-btn btn-secondary">
+        <i class="fas fa-user"></i> About Me
+      </a>
+      <a href="https://github.com/suveer-dhawan" target="_blank" class="hero-btn btn-text">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
   </div>
 </div>
+
+<h2 class="section-heading"><i class="fas fa-star" style="color: var(--theme-color); font-size: 1.1rem;"></i> Featured Case Studies</h2>
+
+<div class="featured-grid">
+  
+  <a href="/posts/woodside-ai-agents/" class="feat-card">
+    <div class="feat-header">
+      <span class="feat-date">Nov 2025</span>
+      <span class="feat-badge">Featured</span>
+    </div>
+    <h3 class="feat-title">Woodside Energy: AI Agents & RAG Workflows</h3>
+    <p class="feat-desc">Architecting 5 production-ready RAG workflows using Copilot Studio and automating unstructured data extraction with GPT-5.1.</p>
+  </a>
+
+  <a href="/posts/hidden-gems-talent/" class="feat-card">
+    <div class="feat-header">
+      <span class="feat-date">Jun 2025</span>
+      <span class="feat-badge">Featured</span>
+    </div>
+    <h3 class="feat-title">Hidden Gems: Automated Recruitment Pipelines</h3>
+    <p class="feat-desc">Leading a 7-person team to reduce manual CV screening time by 95% through intelligent n8n workflow orchestration.</p>
+  </a>
+
+</div>
+
+<h2 class="section-heading" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(128,128,128,0.1);"><i class="fas fa-pen-nib" style="color: var(--text-muted-color); font-size: 1.1rem;"></i> Recent Notes & Articles</h2>
 
 {% assign all_pinned = site.posts | where: 'pin', 'true' %}
 {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
