@@ -8,7 +8,7 @@
 
 /* ------------- Color Theme Overrides ------------- */
 
-/* Force Light Mode - NYU Violet */
+/* LIGHT MODE - NYU Violet */
 html[data-mode="light"],
 html:not([data-mode]) {
   --theme-color: #57068c !important;
@@ -20,15 +20,19 @@ html:not([data-mode]) {
   --toc-highlight: #57068c !important;
 }
 
-/* Force Dark Mode - Soft Lavender */
+/* DARK MODE - High Contrast Lavender */
 html[data-mode="dark"] {
-  --theme-color: #b28be6 !important;
+  --theme-color: #b28be6 !important; /* Brighter lavender for visibility */
   --link-color: #b28be6 !important;
   --link-hover-color: #d1bdf7 !important;
   --btn-bg: #7b43a1 !important;
   --btn-border-color: #7b43a1 !important;
   --sidebar-active-color: #b28be6 !important;
   --toc-highlight: #b28be6 !important;
+  
+  /* Sidebar Variation: Making the sidebar slightly darker than the main body for depth */
+  --sidebar-bg: #161618 !important; 
+  --main-bg: #1b1b1e !important;
 }
 
 
@@ -38,28 +42,32 @@ html[data-mode="dark"] {
   border: 1px solid transparent !important; 
 }
 
-/* Light Mode Glow */
+/* Light Mode Hover Glow (NYU Violet) */
 html[data-mode="light"] #post-list .card:hover,
 html:not([data-mode]) #post-list .card:hover {
   transform: translateY(-4px) !important;
-  box-shadow: 0 10px 25px rgba(87, 6, 140, 0.15) !important; 
-  border-color: rgba(87, 6, 140, 0.3) !important; 
+  box-shadow: 0 10px 30px rgba(87, 6, 140, 0.2) !important; 
+  border-color: rgba(87, 6, 140, 0.4) !important; 
 }
 
-/* Dark Mode Glow */
+/* Dark Mode Hover Glow (Bright Lavender Haze) */
 html[data-mode="dark"] #post-list .card:hover {
   transform: translateY(-4px) !important;
-  box-shadow: 0 10px 25px rgba(178, 139, 230, 0.15) !important;
-  border-color: rgba(178, 139, 230, 0.3) !important;
+  /* Increased spread and opacity for the glow to be visible on dark */
+  box-shadow: 0 10px 30px rgba(178, 139, 230, 0.25) !important;
+  border-color: rgba(178, 139, 230, 0.5) !important;
 }
 
-/* Make the post titles change color on hover */
+/* Ensure the title is readable and "glows" on hover in dark mode */
 #post-list .card:hover .card-title {
   color: var(--theme-color) !important;
   transition: color 0.3s ease !important;
+  {% if jekyll.environment == 'production' %}
+    text-shadow: 0 0 10px rgba(178, 139, 230, 0.2); /* Subtle text glow in dark mode */
+  {% endif %}
 }
 
-/* Make tags pop a bit more */
+/* Tag styling */
 .post-tags .badge {
   background-color: rgba(87, 6, 140, 0.1) !important;
   color: var(--theme-color) !important;
@@ -67,6 +75,6 @@ html[data-mode="dark"] #post-list .card:hover {
 }
 
 html[data-mode="dark"] .post-tags .badge {
-  background-color: rgba(178, 139, 230, 0.1) !important;
-  border-color: rgba(178, 139, 230, 0.2) !important;
+  background-color: rgba(178, 139, 230, 0.15) !important;
+  border-color: rgba(178, 139, 230, 0.3) !important;
 }
