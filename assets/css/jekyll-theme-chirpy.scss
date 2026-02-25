@@ -8,7 +8,7 @@
 
 /* ------------- Color Theme Overrides ------------- */
 
-/* LIGHT MODE - NYU Violet */
+/* LIGHT MODE - NYU Violet (Legacy Undergrad) */
 html[data-mode="light"],
 html:not([data-mode]) {
   --theme-color: #57068c !important;
@@ -20,19 +20,21 @@ html:not([data-mode]) {
   --toc-highlight: #57068c !important;
 }
 
-/* DARK MODE - High Contrast Lavender */
+/* DARK MODE - Monash Cobalt (Current Master's) */
 html[data-mode="dark"] {
-  --theme-color: #b28be6 !important; /* Brighter lavender for visibility */
-  --link-color: #b28be6 !important;
-  --link-hover-color: #d1bdf7 !important;
-  --btn-bg: #7b43a1 !important;
-  --btn-border-color: #7b43a1 !important;
-  --sidebar-active-color: #b28be6 !important;
-  --toc-highlight: #b28be6 !important;
+  /* High-legibility Electric Cobalt */
+  --theme-color: #4285f4 !important; 
+  --link-color: #4285f4 !important;
+  --link-hover-color: #8ab4f8 !important;
+  --btn-bg: #4285f4 !important;
+  --btn-border-color: #4285f4 !important;
+  --sidebar-active-color: #4285f4 !important;
+  --toc-highlight: #4285f4 !important;
   
-  /* Sidebar Variation: Making the sidebar slightly darker than the main body for depth */
-  --sidebar-bg: #161618 !important; 
-  --main-bg: #1b1b1e !important;
+  /* Sidebar variation for better depth */
+  --sidebar-bg: #141417 !important; 
+  --main-bg: #1e1e22 !important;
+  --card-bg: #252529 !important;
 }
 
 
@@ -50,21 +52,18 @@ html:not([data-mode]) #post-list .card:hover {
   border-color: rgba(87, 6, 140, 0.4) !important; 
 }
 
-/* Dark Mode Hover Glow (Bright Lavender Haze) */
+/* Dark Mode Hover Glow (Monash Cobalt Haze) */
 html[data-mode="dark"] #post-list .card:hover {
   transform: translateY(-4px) !important;
-  /* Increased spread and opacity for the glow to be visible on dark */
-  box-shadow: 0 10px 30px rgba(178, 139, 230, 0.25) !important;
-  border-color: rgba(178, 139, 230, 0.5) !important;
+  /* Stronger glow for low-brightness visibility */
+  box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3) !important;
+  border-color: rgba(66, 133, 244, 0.5) !important;
 }
 
-/* Ensure the title is readable and "glows" on hover in dark mode */
+/* Hover title transitions */
 #post-list .card:hover .card-title {
   color: var(--theme-color) !important;
   transition: color 0.3s ease !important;
-  {% if jekyll.environment == 'production' %}
-    text-shadow: 0 0 10px rgba(178, 139, 230, 0.2); /* Subtle text glow in dark mode */
-  {% endif %}
 }
 
 /* Tag styling */
@@ -75,6 +74,7 @@ html[data-mode="dark"] #post-list .card:hover {
 }
 
 html[data-mode="dark"] .post-tags .badge {
-  background-color: rgba(178, 139, 230, 0.15) !important;
-  border-color: rgba(178, 139, 230, 0.3) !important;
+  background-color: rgba(66, 133, 244, 0.15) !important;
+  color: #4285f4 !important;
+  border-color: rgba(66, 133, 244, 0.3) !important;
 }
