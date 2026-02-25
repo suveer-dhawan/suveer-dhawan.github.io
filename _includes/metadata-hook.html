@@ -1,10 +1,10 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Create the div
+    /* 1. Create the div */
     const glow = document.createElement("div");
     glow.id = "cursor-glow";
     
-    // 2. Apply all static styles directly via JS object
+    /* 2. Apply all static styles directly via JS object */
     Object.assign(glow.style, {
       pointerEvents: 'none',
       position: 'fixed',
@@ -18,7 +18,7 @@
     
     document.body.appendChild(glow);
 
-    // 3. Construct the gradient dynamically to protect the syntax
+    /* 3. Construct the gradient dynamically to protect the syntax */
     document.addEventListener('mousemove', function(e) {
       glow.style.background = `radial-gradient(circle 600px at ${e.clientX}px ${e.clientY}px, var(--glow-bg, rgba(123, 67, 161, 0.18)), transparent 80%)`;
     });

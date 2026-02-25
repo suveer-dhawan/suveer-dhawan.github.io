@@ -121,3 +121,18 @@ html[data-mode="dark"] {
   0% { box-shadow: 0 0 10px var(--glow-bg); }
   100% { box-shadow: 0 0 20px var(--theme-color); }
 }
+
+/* ------------- Sidebar UI Space Optimization ------------- */
+#sidebar .profile-wrapper {
+  margin-top: 1.5rem !important; /* Cuts the default top spacing in half */
+}
+
+#sidebar .sidebar-bottom {
+  margin-bottom: 0.5rem !important; /* Pulls the social icons up from the bottom edge */
+  padding-bottom: 0.5rem !important;
+}
+
+/* Slightly reduce the gap between the tagline and our custom card */
+#sidebar .site-subtitle {
+  margin-bottom: 0.5rem !important; 
+}
