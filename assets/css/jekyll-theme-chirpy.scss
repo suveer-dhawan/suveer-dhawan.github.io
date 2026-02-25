@@ -7,53 +7,66 @@
 {% endif %}
 
 /* ------------- Color Theme Overrides ------------- */
-:root {
-  /* Light Mode - NYU Violet */
-  --theme-color: #57068c;
-  --link-color: #57068c;
-  --link-hover-color: #7b43a1;
-  --btn-bg: #57068c;
-  --btn-border-color: #57068c;
+
+/* Force Light Mode - NYU Violet */
+html[data-mode="light"],
+html:not([data-mode]) {
+  --theme-color: #57068c !important;
+  --link-color: #57068c !important;
+  --link-hover-color: #7b43a1 !important;
+  --btn-bg: #57068c !important;
+  --btn-border-color: #57068c !important;
+  --sidebar-active-color: #57068c !important;
+  --toc-highlight: #57068c !important;
 }
 
-[data-theme="dark"] {
-  /* Dark Mode - Soft Lavender for readability */
-  --theme-color: #b28be6;
-  --link-color: #b28be6;
-  --link-hover-color: #d1bdf7;
-  --btn-bg: #7b43a1;
-  --btn-border-color: #7b43a1;
+/* Force Dark Mode - Soft Lavender */
+html[data-mode="dark"] {
+  --theme-color: #b28be6 !important;
+  --link-color: #b28be6 !important;
+  --link-hover-color: #d1bdf7 !important;
+  --btn-bg: #7b43a1 !important;
+  --btn-border-color: #7b43a1 !important;
+  --sidebar-active-color: #b28be6 !important;
+  --toc-highlight: #b28be6 !important;
 }
+
 
 /* ------------- Home Page Post Card Glow Effects ------------- */
 #post-list .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  border: 1px solid transparent; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  border: 1px solid transparent !important; 
 }
 
-#post-list .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(87, 6, 140, 0.15); 
-  border-color: rgba(87, 6, 140, 0.3); 
+/* Light Mode Glow */
+html[data-mode="light"] #post-list .card:hover,
+html:not([data-mode]) #post-list .card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(87, 6, 140, 0.15) !important; 
+  border-color: rgba(87, 6, 140, 0.3) !important; 
 }
 
-[data-theme="dark"] #post-list .card:hover {
-  box-shadow: 0 10px 25px rgba(178, 139, 230, 0.15);
-  border-color: rgba(178, 139, 230, 0.3);
+/* Dark Mode Glow */
+html[data-mode="dark"] #post-list .card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(178, 139, 230, 0.15) !important;
+  border-color: rgba(178, 139, 230, 0.3) !important;
 }
 
+/* Make the post titles change color on hover */
 #post-list .card:hover .card-title {
-  color: var(--theme-color);
-  transition: color 0.3s ease;
+  color: var(--theme-color) !important;
+  transition: color 0.3s ease !important;
 }
 
 /* Make tags pop a bit more */
 .post-tags .badge {
   background-color: rgba(87, 6, 140, 0.1) !important;
   color: var(--theme-color) !important;
-  border: 1px solid rgba(87, 6, 140, 0.2);
+  border: 1px solid rgba(87, 6, 140, 0.2) !important;
 }
-[data-theme="dark"] .post-tags .badge {
+
+html[data-mode="dark"] .post-tags .badge {
   background-color: rgba(178, 139, 230, 0.1) !important;
-  border-color: rgba(178, 139, 230, 0.2);
+  border-color: rgba(178, 139, 230, 0.2) !important;
 }
