@@ -6,11 +6,9 @@
 @use "main";
 {% endif %}
 
-/* ------------- Color Theme Overrides ------------- */
+/* ------------- Theme Definitions ------------- */
 
-/* LIGHT MODE - NYU Violet (Legacy Undergrad) */
-html[data-mode="light"],
-html:not([data-mode]) {
+@mixin light-theme {
   --theme-color: #57068c !important;
   --link-color: #57068c !important;
   --link-hover-color: #7b43a1 !important;
@@ -20,9 +18,7 @@ html:not([data-mode]) {
   --toc-highlight: #57068c !important;
 }
 
-/* DARK MODE - Monash Cobalt (Current Master's) */
-html[data-mode="dark"] {
-  /* High-legibility Electric Cobalt */
+@mixin dark-theme {
   --theme-color: #4285f4 !important; 
   --link-color: #4285f4 !important;
   --link-hover-color: #8ab4f8 !important;
@@ -30,51 +26,77 @@ html[data-mode="dark"] {
   --btn-border-color: #4285f4 !important;
   --sidebar-active-color: #4285f4 !important;
   --toc-highlight: #4285f4 !important;
-  
-  /* Sidebar variation for better depth */
   --sidebar-bg: #141417 !important; 
   --main-bg: #1e1e22 !important;
   --card-bg: #252529 !important;
 }
 
+/* ------------- Apply Base Themes ------------- */
 
-/* ------------- Home Page Post Card Glow Effects ------------- */
+/* Light Mode (Default or Toggled) */
+html:not([data-mode]),
+html[data-mode="light"] {
+  @include light-theme;
+}
+
+/* Dark Mode (Toggled) */
+html[data-mode="dark"] {
+  @include dark-theme;
+}
+
+/* Dark Mode (OS System Preference Override) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    @include dark-theme;
+  }
+}
+
+/* ------------- Global Interactions ------------- */
 #post-list .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
   border: 1px solid transparent !important; 
 }
 
-/* Light Mode Hover Glow (NYU Violet) */
-html[data-mode="light"] #post-list .card:hover,
-html:not([data-mode]) #post-list .card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 30px rgba(87, 6, 140, 0.2) !important; 
-  border-color: rgba(87, 6, 140, 0.4) !important; 
-}
-
-/* Dark Mode Hover Glow (Monash Cobalt Haze) */
-html[data-mode="dark"] #post-list .card:hover {
-  transform: translateY(-4px) !important;
-  /* Stronger glow for low-brightness visibility */
-  box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3) !important;
-  border-color: rgba(66, 133, 244, 0.5) !important;
-}
-
-/* Hover title transitions */
 #post-list .card:hover .card-title {
   color: var(--theme-color) !important;
   transition: color 0.3s ease !important;
 }
 
-/* Tag styling */
-.post-tags .badge {
+/* ------------- Light Mode Interactions ------------- */
+html:not([data-mode]) #post-list .card:hover,
+html[data-mode="light"] #post-list .card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 30px rgba(87, 6, 140, 0.2) !important; 
+  border-color: rgba(87, 6, 140, 0.4) !important; 
+}
+
+html:not([data-mode]) .post-tags .badge,
+html[data-mode="light"] .post-tags .badge {
   background-color: rgba(87, 6, 140, 0.1) !important;
-  color: var(--theme-color) !important;
+  color: #57068c !important;
   border: 1px solid rgba(87, 6, 140, 0.2) !important;
 }
 
-html[data-mode="dark"] .post-tags .badge {
-  background-color: rgba(66, 133, 244, 0.15) !important;
-  color: #4285f4 !important;
-  border-color: rgba(66, 133, 244, 0.3) !important;
+/* ------------- Dark Mode Interactions ------------- */
+@mixin dark-interactions {
+  #post-list .card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3) !important;
+    border-color: rgba(66, 133, 244, 0.5) !important;
+  }
+  .post-tags .badge {
+    background-color: rgba(66, 133, 244, 0.15) !important;
+    color: #4285f4 !important;
+    border: 1px solid rgba(66, 133, 244, 0.3) !important;
+  }
+}
+
+html[data-mode="dark"] {
+  @include dark-interactions;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    @include dark-interactions;
+  }
 }
