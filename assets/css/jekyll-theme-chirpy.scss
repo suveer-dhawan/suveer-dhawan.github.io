@@ -66,23 +66,6 @@ html[data-mode="dark"] {
   transition: color 0.3s ease !important;
 }
 
-/* ------------- Global Cursor Glow ------------- */
-#cursor-glow {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  background: radial-gradient(
-    circle 400px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), 
-    var(--glow-bg), 
-    transparent 80%
-  );
-  transition: background 0.1s ease;
-}
-
 /* ------------- Light Mode Interactions ------------- */
 html:not([data-mode]) #post-list .card:hover,
 html[data-mode="light"] #post-list .card:hover {

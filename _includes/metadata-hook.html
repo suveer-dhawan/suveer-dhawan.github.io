@@ -1,3 +1,22 @@
+<style>
+  #cursor-glow {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    /* Uses the theme variable, with a fallback just in case */
+    background: radial-gradient(
+      circle 400px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), 
+      var(--glow-bg, rgba(123, 67, 161, 0.18)), 
+      transparent 80%
+    );
+    transition: background 0.1s ease;
+  }
+</style>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // 1. Create the glow div dynamically
